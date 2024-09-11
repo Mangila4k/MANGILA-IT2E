@@ -3,22 +3,33 @@ package mangila.it2e;
 import java.util.Scanner;
 
 public class Application {
-    public void manageApplication(){
+    public void manageApplication() {
         Scanner scanner = new Scanner(System.in);
-        
-        System.out.println("Enter Id: ");
+
+        System.out.print("Enter Id: ");
         int id = scanner.nextInt();
-        System.out.println("Enter Name: ");
+        
+        scanner.nextLine();
+        
+        System.out.print("Enter Name: ");
         String name = scanner.nextLine();
-        System.out.println("Enter GPA: ");
+        
+        System.out.print("Enter GPA: ");
         double gpa = scanner.nextDouble();
-        System.out.println("Annual Family Income: ");
+        
+        System.out.print("Annual Family Income: ");
         int fincome = scanner.nextInt();
-        System.out.println("Comunity Service hours: ");
+        
+        System.out.print("Community Service hours: ");
         int csh = scanner.nextInt();
         
         Applications application = new Applications();
         application.setScholarApplication(id, name, gpa, fincome, csh);
-        application.viewApplication();
+        
+        System.out.println("Application Status: " + application.viewApplication());
+        
+        application.printApplication();
+
+        scanner.close();
     }
 }
